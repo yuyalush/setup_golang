@@ -1,0 +1,14 @@
+---
+- hosts: 127.0.0.1
+  user: pakue
+  tasks:
+    - name: "Add repository"
+      apt_repository: repo='ppa:ubuntu-lxc/lxd-stable'
+      become: yes
+      become_method: sudo
+    - name: "apt-get install golang"
+      apt: name=golang update_cache=yes
+      become: yes
+      become_method: sudo
+      
+
